@@ -72,16 +72,16 @@ export default function Landing() {
             initial={{ y: -30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
-            className="text-5xl lg:text-7xl font-extrabold text-white drop-shadow-lg"
+            className="text-4xl lg:text-7xl font-extrabold text-white drop-shadow-lg"
             style={{fontFamily: "VELISTA"}}
           >
-            Ready for Launch. <br /> Get on the Waitlist
+            Ready for Launch. <br />  Get on the Waitlist
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="mt-4 text-lg lg:text-2xl text-gray-300"
+            className="mt-4 text-sm  lg:text-2xl text-gray-300"
             style={{fontFamily: "Agilera"}}
           >
             Join our exclusive list for early access and special perks when we take off.
