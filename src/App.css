@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Agilera";
+  src: url("/fonts/agilera.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Camiro";
+  src: url("/fonts/Camiro.ttf") format("truetype");
+}
+@font-face {
+  font-family: "VELISTA";
+  src: url("/fonts/VELISTA.ttf") format("truetype");
+}
