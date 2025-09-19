@@ -253,7 +253,7 @@ const toggleMusic = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
-                className="px-6 sm:px-8 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-2xl font-semibold tracking-wider text-sm lg:text-xl sm:text-base"
+                className="px-6 sm:px-8 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-2ōxl font-semibold tracking-wider text-sm lg:text-xl sm:text-base"
                 style={{fontFamily:"Montserrat"}}
               >
                 Join the Waitlist
