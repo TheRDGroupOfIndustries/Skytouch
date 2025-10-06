@@ -5,7 +5,7 @@ import { FaTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import cloudbg from "/cloudloader.png";
 import useSound from "use-sound";
 import bgMusic from "/music/Aakash Gandhi - Heavenly (No Copyright Music).mp3";
-import { Volume2, VolumeX } from "lucide-react"; 
+import { Volume2, VolumeX } from "lucide-react";
 
 export default function Landing() {
   const form = useRef();
@@ -13,9 +13,9 @@ export default function Landing() {
   const [showIntro, setShowIntro] = useState(true);
 
   //music
-    const [play, { stop }] = useSound(bgMusic, { loop: true, volume: 0.8  });
+  const [play, { stop }] = useSound(bgMusic, { loop: true, volume: 0.8 });
   const [isPlaying, setIsPlaying] = useState(false);
-const [autoplayTried, setAutoplayTried] = useState(false);
+  const [autoplayTried, setAutoplayTried] = useState(false);
 
   // Hide intro after 4 seconds
   useEffect(() => {
@@ -24,41 +24,41 @@ const [autoplayTried, setAutoplayTried] = useState(false);
   }, []);
 
   // Start music when page loads
- useEffect(() => {
-  const tryAutoplay = async () => {
-    try {
-      await play();
+  useEffect(() => {
+    const tryAutoplay = async () => {
+      try {
+        await play();
+        setIsPlaying(true);
+      } catch (err) {
+        console.log("Autoplay blocked, waiting for user gesture");
+      } finally {
+        setAutoplayTried(true);
+      }
+    };
+
+    tryAutoplay();
+
+    return () => stop();
+  }, [play, stop]);
+
+  const toggleMusic = () => {
+    if (isPlaying) {
+      stop();
+      setIsPlaying(false);
+    } else {
+      play();
       setIsPlaying(true);
-    } catch (err) {
-      console.log("Autoplay blocked, waiting for user gesture");
-    } finally {
-      setAutoplayTried(true);
     }
   };
-
-  tryAutoplay();
-
-  return () => stop();
-}, [play, stop]);
-
-const toggleMusic = () => {
-  if (isPlaying) {
-    stop();
-    setIsPlaying(false);
-  } else {
-    play();
-    setIsPlaying(true);
-  }
-};
 
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_p3kax7t",
-        "template_4mql69m",
+        "service_mj1drpr",
+        "template_deri2wk",
         form.current,
-        "Jp4OppxyaQgClWvtC"
+        "j9smbM-3RzacSiu2P"
       )
       .then(
         () => {
@@ -83,14 +83,14 @@ const toggleMusic = () => {
     <>
       {/* Intro Animation */}
       {/* Intro Animation */}
-        {autoplayTried && (
-  <button
-    onClick={toggleMusic}
-    className="fixed bottom-5 right-5 bg-sky-500 text-white px-4 py-2 rounded-full shadow-lg z-50"
-  >
-    {isPlaying ? <Volume2 size={24} /> : <VolumeX size={24} />}
-  </button>
-)}
+      {autoplayTried && (
+        <button
+          onClick={toggleMusic}
+          className="fixed bottom-5 right-5 bg-sky-500 text-white px-4 py-2 rounded-full shadow-lg z-50"
+        >
+          {isPlaying ? <Volume2 size={24} /> : <VolumeX size={24} />}
+        </button>
+      )}
       <AnimatePresence>
         {showIntro && (
           <motion.div
@@ -104,10 +104,11 @@ const toggleMusic = () => {
               className="absolute inset-0"
               initial={{ opacity: 1 }}
               animate={{ opacity: 0 }}
-               exit={{ opacity: 0 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 4.5, ease: "easeInOut" }}
               style={{
-                background: "linear-gradient(to top, #5ecfffff 100%, transparent 5%)",
+                background:
+                  "linear-gradient(to top, #5ecfffff 100%, transparent 5%)",
               }}
             />
 
@@ -140,11 +141,10 @@ const toggleMusic = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 1.2 }}
               className="text-4xl sm:text-4xl font-bold text-white drop-shadow-lg z-10 uppercase "
-              style={{fontFamily:"Orbitron"}}
+              style={{ fontFamily: "Orbitron" }}
             >
               Skytouch
             </motion.h1>
-
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -152,14 +152,13 @@ const toggleMusic = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 1.5, delay: 0.5 }}
               className="text-lg sm:text-4xl lg:text-7xl text-sky-600 mt-2 z-10 uppercase"
-              style={{fontFamily:"Montserrat"}}
+              style={{ fontFamily: "Montserrat" }}
             >
               Coming Soon
             </motion.p>
           </motion.div>
         )}
       </AnimatePresence>
-
 
       {/* Main Landing Page */}
       {!showIntro && (
@@ -189,7 +188,7 @@ const toggleMusic = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
               className="text-3xl sm:text-4xl lg:text-6xl font-extrabold drop-shadow-lg uppercase"
-              style={{fontFamily:"Montserrat"}}
+              style={{ fontFamily: "Montserrat" }}
             >
               Ready for Launch
             </motion.h1>
@@ -254,12 +253,11 @@ const toggleMusic = () => {
                 whileTap={{ scale: 0.95 }}
                 type="submit"
                 className="px-6 sm:px-8 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-2ōxl font-semibold tracking-wider text-sm lg:text-xl sm:text-base"
-                style={{fontFamily:"Montserrat"}}
+                style={{ fontFamily: "Montserrat" }}
               >
                 Join the Waitlist
               </motion.button>
             </form>
-
 
             {isSent && (
               <p className="text-cyan-300 mt-3 sm:mt-4 text-sm sm:text-base font-extrabold">
@@ -285,7 +283,6 @@ const toggleMusic = () => {
               © 2025 Skytouch. All rights reserved.
             </p>
           </footer>
-        
         </div>
       )}
     </>
